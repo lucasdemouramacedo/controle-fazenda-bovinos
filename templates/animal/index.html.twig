@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <div class="container-lg p-0 my-4">
+        
+        <div class="d-flex mb-3 justify-content-end mx-4 mx-lg-0"> 
+            <a class="btn btn-primary" role="button" href="{{ path('app_animal_new') }}">Novo animal</a>
+        </div>
+        <div class="card card-relatorios overflow-hidden mx-4 mx-lg-0">
+
+            <ul class="nav nav-tabs">
+                <li class="nav-item" style="width: 59.813px; height: 47.109px;">
+                    <a class="nav-link {{ app.request.get("_route") == 'relatorio_home' ? 'active' : ''}}" style="width: 59.813px; height: 48px;" aria-current="page" href="{{ path('relatorio_home') }}">
+                        <h4 class="m-1 fw-bold"><i class="fa-solid fa-house"></i></h4>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ app.request.get("_route") == 'relatorio_animais' ? 'active' : ''}}" aria-current="page" href="{{ path('relatorio_animais') }}">
+                        <h4 class="m-1 fw-bold">Animais</h4>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ app.request.get("_route") == 'relatorio_animais_para_abate' ? 'active' : ''}}" aria-current="page" href="{{ path('relatorio_animais_para_abate') }}">
+                        <h4 class="m-1 fw-bold">Animais para abate</h4>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ app.request.get("_route") == 'relatorio_animais_abatidos' ? 'active' : ''}}" aria-current="page" href="{{ path('relatorio_animais_abatidos') }}">
+                        <h4 class="m-1 fw-bold">Animais abatidos</h4>
+                    </a>
+                </li>
+            </ul> 
+            {% block card %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}

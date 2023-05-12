@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Animal{% endblock %}
+
+{% block body %}
+<div class="container-lg">
+<div class="card card-form overflow-hidden mx-4 mt-5 mx-lg-0 p-5">
+    <h2 class="mb-4 fw-semibold form-title">Cadastrar novo animal</h2>
+
+    {{ include('animal/_form.html.twig') }}
+    <div class="col-12 col-sm-4 col-md-3 col-lg-2 order-2 order-sm-0">
+            <a class="btn btn-light col-12" href="{{ path('relatorio_home') }}">Voltar</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+{% endblock %}

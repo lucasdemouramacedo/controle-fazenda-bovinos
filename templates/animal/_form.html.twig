@@ -1,0 +1,101 @@
+
+{{ form_start(form) }}
+        <input 
+        type="hidden" 
+        id="{{field_name(form._token)}}" 
+        name="{{field_name(form._token)}}" 
+        value="{{field_value(form._token)}}"
+        >
+        <input 
+        type="hidden" 
+        id="{{field_name(form.status)}}" 
+        name="{{field_name(form.status)}}" 
+        value="1"
+        >
+    <div class="row">
+        <div class="mb-3 col-12 col-sm-6">
+            <label for="{{field_name(form.codigo)}}" class="form-label fw-semibold">Código</label>
+            <input 
+            type="text" 
+            id="{{field_name(form.codigo)}}" 
+            name="{{field_name(form.codigo)}}" 
+            value="{{field_value(form.codigo)}}"
+            class="form-control" 
+            placeholder="Código" 
+            aria-label="Código" 
+            aria-describedby="addon-wrapping"
+            >
+            <div id="{{field_name(form.codigo)}}" class=" {{ form.codigo.vars.errors ? 'd-block' : '' }} d-block invalid-feedback">
+                {{ form.codigo.vars.errors|replace({"ERROR: ":""})}}
+            </div>
+        </div>
+        <div class="mb-3 col-12 col-sm-6">
+            <label for="{{field_name(form.nascimento)}}" class="form-label fw-semibold">Data de nascimento</label>
+            <input 
+            type="date" 
+            id="{{field_name(form.nascimento)}}" 
+            name="{{field_name(form.nascimento)}}" 
+            value="{{field_value(form.nascimento)}}"
+            class="form-control" 
+            placeholder="Data de nascimento" 
+            aria-label="Data de nascimento" 
+            aria-describedby="Data de nascimento"
+            >
+            <div id="{{field_name(form.nascimento)}}" class=" {{ form.nascimento.vars.errors ? 'd-block' : '' }} d-block invalid-feedback">
+                {{ form.nascimento.vars.errors|replace({"ERROR: ":""})}}
+            </div>
+        </div>
+        <div class="mb-3 col-12 col-sm-6">
+            <label for="{{field_name(form.peso)}}" class="form-label fw-semibold">Peso do animal</label>
+            <input 
+            type="text" 
+            id="{{field_name(form.peso)}}" 
+            name="{{field_name(form.peso)}}" 
+            value="{{field_value(form.peso)}}"
+            class="form-control" 
+            placeholder="Peso do animal" 
+            aria-label="Peso do animal" 
+            aria-describedby="Peso do animal"
+            >
+            <div id="{{field_name(form.peso)}}" class=" {{ form.peso.vars.errors ? 'd-block' : '' }} d-block invalid-feedback">
+                {{ form.peso.vars.errors|replace({"ERROR: ":""})}}
+            </div>
+        </div>
+        <div class="mb-3 col-12 col-sm-6">
+            <label for="{{field_name(form.leite)}}" class="form-label fw-semibold">Litros de leite</label>
+            <input 
+            type="text" 
+            id="{{field_name(form.leite)}}" 
+            name="{{field_name(form.leite)}}" 
+            value="{{field_value(form.leite)}}"
+            class="form-control" 
+            placeholder="Litros de leite" 
+            aria-label="Litros de leite" 
+            aria-describedby="addon-wrapping"
+            >
+            <div id="{{field_name(form.leite)}}" class=" {{ form.leite.vars.errors ? 'd-block' : '' }} d-block invalid-feedback">
+                {{ form.leite.vars.errors|replace({"ERROR: ":""})}}
+            </div>
+        </div>
+        <div class="mb-3 col-12 col-sm-6">
+            <label for="{{field_name(form.racao)}}" class="form-label fw-semibold">Ração (em Kg)</label>
+            <input 
+            type="text" 
+            id="{{field_name(form.racao)}}" 
+            name="{{field_name(form.racao)}}" 
+            value="{{field_value(form.racao)}}"
+            class="form-control" 
+            placeholder="Ração (em Kg)" 
+            aria-label="Ração (em Kg)" 
+            aria-describedby="Ração (em Kg)"
+            >
+            <div id="{{field_name(form.racao)}}" class=" {{ form.racao.vars.errors ? 'd-block' : '' }} d-block invalid-feedback">
+                {{ form.racao.vars.errors|replace({"ERROR: ":""})}}
+            </div>
+        </div>
+    </div>
+        <div class="row row-gap-2 justify-content-end">
+        <div class="col-12 col-sm-4 col-md-3 col-lg-2 order-0 order-sm-2">
+            <button class="btn btn-primary col-12">{{ button_label|default('Salvar') }}</button>
+        </div
+{{ form_end(form) }}

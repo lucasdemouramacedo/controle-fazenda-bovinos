@@ -6,6 +6,9 @@
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -13,10 +16,193 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
-    </head>
-    <body class="p-4">
 
+        <style>
+        body{
+            font-family: 'Inter', sans-serif;
+            background-color: #fbfbfb
+        }
+        body::after{
+            content: "";
+            position: absolute;
+            width: 100%;
+            top: 0;
+            z-index: -1;
+            height: 200px;
+            background: rgb(0,186,0);
+            background: linear-gradient(90deg,  rgb(109 169 57) 0%, rgb(127 199 83) 50%, rgb(109 169 57) 100%);
+        }
+        .cards .card{
+            width: 250px !important;
+            height: 175px;
+            min-width: 250px !important;
+            min-height: 175px;
+            border: 0;
+            box-shadow: 0px 0px 12px -5px #343434;
+            color: rgba(34, 54, 17, 1);
+            transition: all .4s ease;
+            border-radius: 15px;
+        }
+        .cards .card:hover{
+            margin-top: -3px;
+            margin-bottom: 3px;
+            box-shadow: 0px 1px 14px -5px #343434;
+            transition: all .4s ease;
+        }
+        .card-icon{
+            height: 35px;
+            width: 35px;
+            background-color: rgba(127, 199, 83, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            
+        }
+        .card-icon i{
+            color: rgba(109, 169, 57, 1)
+        }
+        .navbar-brand{
+            color: rgba(34, 54, 17, 1);
+        }
+        .card-icon .badge{
+            background-color: rgba(34, 54, 17, 1);
+            margin-bottom: 45px;
+        }
+        .cards::-webkit-scrollbar {
+            display: none;
+        }
+        .card-relatorios{
+            border: 0;
+            box-shadow: 0px 0px 12px -5px #343434;
+            /*background-color: rgba(34, 54, 17, 0.1);*/
+            transition: all .4s ease;
+            border-radius: 10px;
+            min-height: 70vh
+        }
+         .nav-link, .active, .nav-tabs{
+            z-index:1;
+            border: 0 !important;
+         }
+         .nav-link:hover, .active:hover, .nav-tabs:hover{
+            border: 0 !important;
+            isolation: auto !important;
+         }
+         .nav-link:hover, .active{
+            color: rgba(34, 54, 17, 1);
+            border-bottom: 3px solid rgba(34, 54, 17, 1) !important;
+         }
+         
+        .nav-link, .active h4{
+            font-size: 1.1rem;
+            color: rgba(34, 54, 17, 1);
+        }
+
+        .nav-link, h4{
+            font-size: 1.1rem;
+            color: rgba(34, 54, 17, 0.5);
+        }
+        .nav-link:hover{
+            border-bottom: 3px solid rgba(34, 54, 17, 0.5) !important;
+         }
+        .active:hover{
+            border-bottom: 3px solid rgba(34, 54, 17, 1) !important;
+         }
+        thead{
+            background-color: rgba(127, 199, 83, 0.5);
+            color: rgba(34, 54, 17, 1);
+            font-size: 1rem;
+        }
+        tbody tr td:last-child, th:last-child{
+            text-align: center;
+        }
+
+        tbody tr:hover{
+            background-color: rgba(127, 199, 83, 0.1);
+            color: rgba(34, 54, 17, 1);
+            font-size: 1rem;
+        }
+        tbody tr td{
+            background-color: rgba(127, 199, 83, 0.1);
+            color: rgba(34, 54, 17, 1);
+            font-size: 0.9rem;
+        }
+        .btn{
+            border-radius: 10px;
+            padding: 7px 17px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+       
+        .card-form{
+            border: 0;
+            box-shadow: 0px 0px 12px -5px #343434;
+            transition: all .4s ease;
+            border-radius: 10px;
+        }
+
+        .card-form::after{
+            content: "";
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            z-index: 0;
+            height: 20px;
+            margin-left: -48px;
+            background: rgb(0,186,0);
+            background: linear-gradient(90deg,  rgb(109 169 57) 0%, rgb(127 199 83) 50%, rgb(109 169 57) 100%);
+        }
+        .form-title{
+            color: rgba(34, 54, 17, 1);
+        }
+        label{
+            color: rgba(34, 54, 17, 1);
+            font-size: 0.9rem;
+        }
+        .form-control:focus{
+            color: rgba(34, 54, 17, 1);
+            background-color: white;
+            border-color: rgba(127, 199, 83, 0.4);
+            outline: 0;
+            box-shadow: 0 0 0 0.15rem rgba(127, 199, 83, 0.4);
+        }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary ">
+            <div class="container-fluid">
+                <a class="navbar-brand row align-items-center fw-bold mx-3" href="#">
+                    <div class="card-icon me-2">
+                        <i class="fa-solid fa-cow"></i>
+                    </div>
+                    BoiControl
+                </a>
+            </div>
+        </nav>
         {% block body %}{% endblock %}
+        {% for notice in app.flashes('notice') %}
+            <div id="toast" class="toast d-block align-items-center text-bg-primary border-0 position-fixed bottom-0 end-0 m-5" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        {{ notice }}
+                    </div>
+                    <button id="close" type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>    
+        {% endfor %}
+        <script src="https://kit.fontawesome.com/5ccceef494.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+        <script>
+            const close = document.getElementById('close');
+            const toast   = document.getElementById('toast');
+
+            close.addEventListener('click', () => {
+                toast.remove();
+            });
+
+            setTimeout(() => {
+                toast.remove();
+            }, "5000");
+        </script>
     </body>
 </html>

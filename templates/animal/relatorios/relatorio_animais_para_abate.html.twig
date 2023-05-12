@@ -1,0 +1,46 @@
+{% extends 'animal/index.html.twig' %}
+
+{% block title %}Animais para abate{% endblock %}
+
+{% block card %}
+<div class="table-responsive-sm">
+    <table class="table m-0">
+        <thead>
+            <tr>
+                <th><span class="ms-2 fw-semibold">Código</span></th>
+                <th><span class="fw-semibold">Leite (L/sem)</span></th>
+                <th><span class="fw-semibold">Ração (Kg/sem)</span></th>
+                <th><span class="fw-semibold">Ração (Kg/dia)</span></th>
+                <th><span class="fw-semibold">Peso (Kg)</span></th>
+                <th><span class="fw-semibold">Peso (@)</span></th>
+                <th><span class="fw-semibold">Idade</span></th>
+                <th><span class="fw-semibold">Nascimento</span></th>
+                <th><span class="fw-semibold">Ações</span></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for animal in animals %}
+            <tr>
+                <td><span class="ms-2 fw-medium badge rounded-pill text-bg-primary">{{ animal.codigo }}</span></td>
+                <td><span class="fw-medium">{{ animal.leite|number_format( 2, ',', '.' )}}</span></td>
+                <td><span class="fw-medium">{{ animal.racao|number_format( 2, ',', '.' )}}</span></td>
+                <td><span class="fw-medium">{{ animal.getRacaoPorDia()|number_format( 2, ',', '.' )}}</span></td>
+                <td><span class="fw-medium">{{ animal.peso|number_format( 2, ',', '.' )}}</span></td>
+                <td><span class="fw-medium">{{ animal.getPesoEmArroba()|number_format( 2, ',', '.' )}}</span></td>
+                <td><span class="fw-medium">{{ animal.getIdade()}}</span></td>
+                <td><span class="fw-medium">{{ animal.nascimento ? animal.nascimento|date('d/m/Y') : '' }}</span></td>
+                <td>
+                    <div class="d-flex flex-nowrap justify-content-center">
+                        {{ include('animal/_abate_form.html.twig') }}
+                    </div>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Cadastros não encontrados!</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

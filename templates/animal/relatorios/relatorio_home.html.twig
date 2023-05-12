@@ -1,0 +1,51 @@
+{% extends 'animal/index.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block card %}
+    <div class="cards d-flex flex-row flex-wrap justify-content-evenly py-4 px-4 ">
+            <div class="card m-4">
+                <div class="py-4 px-4 card-body row">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center">
+                        <span class="m-0 fw-semibold">Produção de Leite</span>
+                        <div class="card-icon">
+                            <i class="fa-solid fa-bottle-droplet"></i>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column justify-content-end">
+                        <h3 class="m-0 fw-bolder">{{ totalLeite|number_format( 2, ',', '.' ) }} Litros</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card m-4">
+                <div class="py-4 px-4 card-body row">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center">
+                        <span class="m-0 fw-semibold">Ração necessária</span>
+                        <div class="card-icon">
+                            <i class="fa-solid fa-plate-wheat"></i>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column justify-content-end">
+                        <h3 class="m-0 fw-bolder">{{ racaoNecessaria|number_format( 2, ',', '.' )}} quilos</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card m-4">
+                <div class="py-4 px-4 card-body row">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center">
+                        <span class="m-0 fw-semibold">Animais</span>
+                        <div class="card-icon position-relative">
+                            <i class="fa-solid fa-cow"></i>
+                            <span class="position-absolute badge rounded-pill no-caps">
+                                1 ano
+                            </span>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column justify-content-end">
+                        <h3 class="m-0 fw-bolder">{{animais}} animais</h3>
+                        <p class="m-0 fw-medium fs-6 text">Até um ano e consomem mais de 500 Kg de ração</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

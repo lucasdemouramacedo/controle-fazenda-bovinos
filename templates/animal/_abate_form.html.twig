@@ -1,0 +1,6 @@
+<div class="">
+    <form method="post"class="col-12 p-0" style="margin:0 !important" action="{{ path('app_animal_abate', {'id': animal.id}) }}" onsubmit="return confirm('Tem certeza que quer abater o animal?');">
+        <input type="hidden" name="_token" value="{{ csrf_token('abate' ~ animal.id) }}">
+        <button class="btn btn-danger col-12">Abater</button>
+    </form>
+</div>
